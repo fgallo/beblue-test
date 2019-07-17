@@ -15,7 +15,8 @@ protocol ListPhotosDisplayLogic: class {
 class ListPhotosViewController: UIViewController, ListPhotosDisplayLogic {
     
     var interactor: ListPhotosBusinessLogic?
-    var router: ListPhotosRoutingLogic?
+    var router: (NSObjectProtocol & ListPhotosRoutingLogic & ListPhotosDataPassing)?
+    
     
     // MARK: Object lifecycle
     
@@ -29,6 +30,7 @@ class ListPhotosViewController: UIViewController, ListPhotosDisplayLogic {
         setup()
     }
     
+    
     // MARK: Setup
     
     private func setup() {
@@ -41,12 +43,24 @@ class ListPhotosViewController: UIViewController, ListPhotosDisplayLogic {
         interactor.presenter = presenter
         presenter.viewController = viewController
         router.viewController = viewController
+        router.dataStore = interactor
     }
     
     private func setupView() {
         title = "Mars Rovers Photos"
     }
     
+    
+    // MARK: Routing
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let scene = segue.identifier {
+            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
+            if let router = router, router.responds(to: selector) {
+                router.perform(selector, with: segue)
+            }
+        }
+    }
     
     // MARK: View lifecycle
     
@@ -115,7 +129,7 @@ extension ListPhotosViewController: UICollectionViewDataSource {
 extension ListPhotosViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        performSegue(withIdentifier: "PhotoDetails", sender: nil)
     }
     
 }

@@ -26,7 +26,7 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     func configure(item: ListPhotos.FetchPhotos.ViewModel.DisplayedPhoto) {
         photoImageView.kf.indicatorType = .activity
         photoImageView.kf.setImage(with: item.imageURL,
-                                   options: [.transition(.fade(1))])
+                                   options: [.transition(.fade(1)), .cacheOriginalImage])
     }
 
 }

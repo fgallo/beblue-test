@@ -53,11 +53,54 @@
                     <navigationItem key="navigationItem" id="TIA-v6-93i"/>
                     <connections>
                         <outlet property="collectionView" destination="y3G-ku-ZmH" id="8N1-of-GdV"/>
+                        <segue destination="ne4-t4-MP1" kind="show" identifier="PhotoDetails" id="G87-WO-BBJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="999" y="136"/>
+        </scene>
+        <!--Photo Details View Controller-->
+        <scene sceneID="QgV-l4-EP0">
+            <objects>
+                <viewController storyboardIdentifier="PhotoDetailsViewController" id="ne4-t4-MP1" customClass="PhotoDetailsViewController" customModule="Beblue" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HRH-T0-Odn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hct-wV-UPi">
+                                <rect key="frame" x="8" y="72" width="359" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Yag-1V-lWQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="P0B-Vh-tLN">
+                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4fe-a1-gYE" firstAttribute="trailing" secondItem="P0B-Vh-tLN" secondAttribute="trailing" id="Psr-2J-4NC"/>
+                            <constraint firstItem="4fe-a1-gYE" firstAttribute="trailing" secondItem="hct-wV-UPi" secondAttribute="trailing" constant="8" id="QDY-fV-mRf"/>
+                            <constraint firstItem="P0B-Vh-tLN" firstAttribute="leading" secondItem="4fe-a1-gYE" secondAttribute="leading" id="Ruq-b9-kTo"/>
+                            <constraint firstItem="4fe-a1-gYE" firstAttribute="bottom" secondItem="P0B-Vh-tLN" secondAttribute="bottom" id="Z7k-ap-in0"/>
+                            <constraint firstItem="P0B-Vh-tLN" firstAttribute="top" secondItem="hct-wV-UPi" secondAttribute="bottom" constant="8" id="fMQ-Jo-16c"/>
+                            <constraint firstItem="hct-wV-UPi" firstAttribute="leading" secondItem="4fe-a1-gYE" secondAttribute="leading" constant="8" id="fXQ-g3-mng"/>
+                            <constraint firstItem="hct-wV-UPi" firstAttribute="top" secondItem="4fe-a1-gYE" secondAttribute="top" constant="8" id="r2o-87-LFa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4fe-a1-gYE"/>
+                    </view>
+                    <connections>
+                        <outlet property="nameLabel" destination="hct-wV-UPi" id="ADP-eC-Mug"/>
+                        <outlet property="photoImageView" destination="P0B-Vh-tLN" id="njt-ii-dWu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i9G-2T-Ayc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1826" y="135"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="y93-xh-Sza">

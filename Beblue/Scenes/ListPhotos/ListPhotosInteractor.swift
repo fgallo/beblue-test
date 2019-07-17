@@ -12,7 +12,11 @@ protocol ListPhotosBusinessLogic {
     func fetchPhotos(request: ListPhotos.FetchPhotos.Request)
 }
 
-class ListPhotosInteractor: ListPhotosBusinessLogic {
+protocol ListPhotosDataStore {
+    var photos: [Photo]? { get }
+}
+
+class ListPhotosInteractor: ListPhotosBusinessLogic, ListPhotosDataStore {
     
     var presenter: ListPhotosPresentationLogic?
     
