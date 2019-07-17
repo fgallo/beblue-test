@@ -11,20 +11,21 @@ import UIKit
 enum ListPhotos {
     
     enum FetchPhotos {
-        
         struct Request {
+            var rover: String
+            var date: String
         }
         
         struct Response {
+            var photos: [Photo]
         }
         
         struct ViewModel {
             struct DisplayedPhoto {
-                
+                var imageURL: URL
             }
             var displayedPhotos: [DisplayedPhoto]
         }
-        
     }
     
 }

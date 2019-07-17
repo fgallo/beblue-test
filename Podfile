@@ -6,6 +6,7 @@ target 'Beblue' do
   use_frameworks!
 
   # Pods for Beblue
+  pod 'Kingfisher'
   pod 'Moya', '~> 13.0'
 
   target 'BeblueTests' do

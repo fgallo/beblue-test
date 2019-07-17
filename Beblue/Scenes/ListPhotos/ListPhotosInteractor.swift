@@ -13,12 +13,21 @@ protocol ListPhotosBusinessLogic {
 }
 
 class ListPhotosInteractor: ListPhotosBusinessLogic {
+    
     var presenter: ListPhotosPresentationLogic?
+    
+    var photosWorker = PhotosWorker(photoProvider: NasaProvider)
+    var photos: [Photo]?
+    
     
     // MARK - Fetch Photos
     
     func fetchPhotos(request: ListPhotos.FetchPhotos.Request) {
-        
+        photosWorker.fetchPhotos(rover: request.rover, date: request.date) { photos in
+            self.photos = photos
+            let response = ListPhotos.FetchPhotos.Response(photos: photos)
+            self.presenter?.presentFetchedPhotos(response: response)
+        }
     }
     
 }

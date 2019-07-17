@@ -43,12 +43,17 @@ class ListPhotosViewController: UIViewController, ListPhotosDisplayLogic {
         router.viewController = viewController
     }
     
+    private func setupView() {
+        title = "Mars Rovers Photos"
+    }
+    
     
     // MARK: View lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
+        setupView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,7 +67,7 @@ class ListPhotosViewController: UIViewController, ListPhotosDisplayLogic {
     var displayedPhotos: [ListPhotos.FetchPhotos.ViewModel.DisplayedPhoto] = []
     
     func fetchPhotos() {
-        let request = ListPhotos.FetchPhotos.Request()
+        let request = ListPhotos.FetchPhotos.Request(rover: "curiosity", date: "2019-6-3")
         interactor?.fetchPhotos(request: request)
     }
     
@@ -79,6 +84,8 @@ class ListPhotosViewController: UIViewController, ListPhotosDisplayLogic {
     private func setupCollectionView() {
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.register(UINib(nibName: String(describing: PhotoCollectionViewCell.self),
+                                      bundle: nil), forCellWithReuseIdentifier: "PhotoCell")
     }
     
 }
@@ -97,7 +104,10 @@ extension ListPhotosViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        let displayedPhoto = displayedPhotos[indexPath.item]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! PhotoCollectionViewCell
+        cell.configure(item: displayedPhoto)
+        return cell
     }
     
 }
@@ -106,6 +116,16 @@ extension ListPhotosViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+    }
+    
+}
+
+extension ListPhotosViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let padding: CGFloat = 3.0 * 8.0
+        let collectionViewSize = collectionView.frame.size.width - padding
+        return CGSize(width: collectionViewSize / 2, height: collectionViewSize * 2 / 3)
     }
     
 }
