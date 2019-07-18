@@ -33,6 +33,8 @@
 		A22D631C22DFCEDB00256866 /* PhotoDetailsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22D631B22DFCEDB00256866 /* PhotoDetailsModels.swift */; };
 		A22D631E22DFCEE500256866 /* PhotoDetailsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22D631D22DFCEE500256866 /* PhotoDetailsWorker.swift */; };
 		A22D632022DFCEEE00256866 /* PhotoDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22D631F22DFCEEE00256866 /* PhotoDetailsRouter.swift */; };
+		A22D632422E0039B00256866 /* ListPhotosInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22D632322E0039B00256866 /* ListPhotosInteractorTests.swift */; };
+		A22D632722E0078500256866 /* PhotoDetailsInteractorDetailsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22D632622E0078500256866 /* PhotoDetailsInteractorDetailsTests.swift */; };
 		BB744E42118E4DD4D6AA2BE2 /* Pods_Beblue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B535448E77B20D1D2F7E3BF9 /* Pods_Beblue.framework */; };
 		C961BD062F553FF97065AD59 /* Pods_BeblueUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27ACFB2CF0C2FF48D5B62643 /* Pods_BeblueUITests.framework */; };
 /* End PBXBuildFile section */
@@ -91,6 +93,8 @@
 		A22D631B22DFCEDB00256866 /* PhotoDetailsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailsModels.swift; sourceTree = "<group>"; };
 		A22D631D22DFCEE500256866 /* PhotoDetailsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailsWorker.swift; sourceTree = "<group>"; };
 		A22D631F22DFCEEE00256866 /* PhotoDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailsRouter.swift; sourceTree = "<group>"; };
+		A22D632322E0039B00256866 /* ListPhotosInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPhotosInteractorTests.swift; sourceTree = "<group>"; };
+		A22D632622E0078500256866 /* PhotoDetailsInteractorDetailsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailsInteractorDetailsTests.swift; sourceTree = "<group>"; };
 		A286232C2FC6C34F51779965 /* Pods_BeblueTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeblueTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B535448E77B20D1D2F7E3BF9 /* Pods_Beblue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Beblue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6BA978EACAFAE8AC641E4A8 /* Pods-BeblueUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeblueUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BeblueUITests/Pods-BeblueUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -180,6 +184,7 @@
 		A22D62D522DF92A900256866 /* BeblueTests */ = {
 			isa = PBXGroup;
 			children = (
+				A22D632122E0036200256866 /* Scenes */,
 				A22D62D622DF92A900256866 /* BeblueTests.swift */,
 				A22D62D822DF92A900256866 /* Info.plist */,
 			);
@@ -269,6 +274,31 @@
 				A22D631B22DFCEDB00256866 /* PhotoDetailsModels.swift */,
 				A22D631D22DFCEE500256866 /* PhotoDetailsWorker.swift */,
 				A22D631F22DFCEEE00256866 /* PhotoDetailsRouter.swift */,
+			);
+			path = PhotoDetails;
+			sourceTree = "<group>";
+		};
+		A22D632122E0036200256866 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				A22D632222E0037500256866 /* ListPhotos */,
+				A22D632522E0076B00256866 /* PhotoDetails */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		A22D632222E0037500256866 /* ListPhotos */ = {
+			isa = PBXGroup;
+			children = (
+				A22D632322E0039B00256866 /* ListPhotosInteractorTests.swift */,
+			);
+			path = ListPhotos;
+			sourceTree = "<group>";
+		};
+		A22D632522E0076B00256866 /* PhotoDetails */ = {
+			isa = PBXGroup;
+			children = (
+				A22D632622E0078500256866 /* PhotoDetailsInteractorDetailsTests.swift */,
 			);
 			path = PhotoDetails;
 			sourceTree = "<group>";
@@ -542,7 +572,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A22D632722E0078500256866 /* PhotoDetailsInteractorDetailsTests.swift in Sources */,
 				A22D62D722DF92A900256866 /* BeblueTests.swift in Sources */,
+				A22D632422E0039B00256866 /* ListPhotosInteractorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
