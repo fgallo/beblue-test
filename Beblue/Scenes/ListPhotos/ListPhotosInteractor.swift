@@ -24,7 +24,7 @@ class ListPhotosInteractor: ListPhotosBusinessLogic, ListPhotosDataStore {
     var photos: [Photo]?
     
     var lastCuriosityDate = Date()
-    var lastOpportunityDate = Calendar.current.date(byAdding: .year, value: -1, to: Date()) ?? Date()
+    var lastOpportunityDate = Date()
     var lastSpiritDate = Date()
     
     
