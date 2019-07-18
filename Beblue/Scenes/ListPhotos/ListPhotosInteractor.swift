@@ -24,7 +24,7 @@ class ListPhotosInteractor: ListPhotosBusinessLogic, ListPhotosDataStore {
     var photos: [Photo]?
     
     var lastCuriosityDate = Date()
-    var lastOpportunityDate = Date()
+    var lastOpportunityDate = Calendar.current.date(byAdding: .year, value: -1, to: Date()) ?? Date()
     var lastSpiritDate = Date()
     
     
@@ -34,13 +34,13 @@ class ListPhotosInteractor: ListPhotosBusinessLogic, ListPhotosDataStore {
         let date = getDate(rover: request.rover)
         
         photosWorker.fetchPhotos(rover: request.rover.name(), date: date) { photos in
-            self.photos = photos
-            let response = ListPhotos.FetchPhotos.Response(photos: photos)
-            self.presenter?.presentFetchedPhotos(response: response)
-            
             if photos.count == 0 {
                 self.decreaseDate(rover: request.rover)
             }
+            
+            self.photos = photos
+            let response = ListPhotos.FetchPhotos.Response(photos: photos)
+            self.presenter?.presentFetchedPhotos(response: response)
         }
     }
     

@@ -19,7 +19,7 @@ extension Camera: Decodable {
     enum CodingKeys: String, CodingKey {
         case id
         case roverId = "rover_id"
-        case name = "name"
+        case name
         case fullName = "full_name"
     }
 }
