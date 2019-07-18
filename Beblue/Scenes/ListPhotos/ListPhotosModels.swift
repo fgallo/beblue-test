@@ -12,8 +12,7 @@ enum ListPhotos {
     
     enum FetchPhotos {
         struct Request {
-            var rover: String
-            var date: String
+            var rover: Rovers
         }
         
         struct Response {
@@ -25,6 +24,23 @@ enum ListPhotos {
                 var imageURL: URL
             }
             var displayedPhotos: [DisplayedPhoto]
+        }
+    }
+    
+    enum Rovers: String {
+        case curiosity
+        case opportunity
+        case spirit
+        
+        func name() -> String {
+            switch self {
+            case .curiosity:
+                return "curiosity"
+            case .opportunity:
+                return "opportunity"
+            case .spirit:
+                return "spirit"
+            }
         }
     }
     

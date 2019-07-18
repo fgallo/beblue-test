@@ -62,6 +62,7 @@ class ListPhotosViewController: UIViewController, ListPhotosDisplayLogic {
         }
     }
     
+    
     // MARK: View lifecycle
     
     override func viewDidLoad() {
@@ -78,15 +79,30 @@ class ListPhotosViewController: UIViewController, ListPhotosDisplayLogic {
     
     // MARK: - Fetch photos
     
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    
     var displayedPhotos: [ListPhotos.FetchPhotos.ViewModel.DisplayedPhoto] = []
     
     func fetchPhotos() {
-        let request = ListPhotos.FetchPhotos.Request(rover: "curiosity", date: "2019-6-3")
+        activityIndicatorView.startAnimating()
+        
+        let request = ListPhotos.FetchPhotos.Request(rover: selectedRover)
         interactor?.fetchPhotos(request: request)
     }
     
     func displayFetchedPhotos(viewModel: ListPhotos.FetchPhotos.ViewModel) {
         displayedPhotos = viewModel.displayedPhotos
+        
+        if displayedPhotos.count > 0 {
+            activityIndicatorView.stopAnimating()
+            collectionView.reloadData()
+        } else {
+            fetchPhotos()
+        }
+    }
+    
+    func clearPhotos() {
+        displayedPhotos = []
         collectionView.reloadData()
     }
     
@@ -100,6 +116,27 @@ class ListPhotosViewController: UIViewController, ListPhotosDisplayLogic {
         collectionView.delegate = self
         collectionView.register(UINib(nibName: String(describing: PhotoCollectionViewCell.self),
                                       bundle: nil), forCellWithReuseIdentifier: "PhotoCell")
+    }
+    
+    
+    // MARK: - UISegmentedControll setup
+    
+    var selectedRover: ListPhotos.Rovers = .curiosity
+    
+    @IBAction func segmentedControlIndexChanged(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            selectedRover = .curiosity
+        case 1:
+            selectedRover = .opportunity
+        case 2:
+            selectedRover = .spirit
+        default:
+            break
+        }
+        
+        clearPhotos()
+        fetchPhotos()
     }
     
 }

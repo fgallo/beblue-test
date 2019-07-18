@@ -36,12 +36,20 @@
                                     <segment title="Opportunity"/>
                                     <segment title="Spirit"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentedControlIndexChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="13e-8g-Id1"/>
+                                </connections>
                             </segmentedControl>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="fMm-Cb-2f6">
+                                <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="cE9-K9-6Jd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5Sl-mz-G6a"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cE9-K9-6Jd" secondAttribute="trailing" id="LKI-H7-LaE"/>
+                            <constraint firstItem="fMm-Cb-2f6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RO6-gO-cbX"/>
+                            <constraint firstItem="fMm-Cb-2f6" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ZwC-Lv-qfg"/>
                             <constraint firstItem="y3G-ku-ZmH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dPd-ng-4GV"/>
                             <constraint firstItem="y3G-ku-ZmH" firstAttribute="top" secondItem="cE9-K9-6Jd" secondAttribute="bottom" id="jnC-Kg-2by"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="y3G-ku-ZmH" secondAttribute="bottom" id="ksK-Ae-Gyx"/>
@@ -52,6 +60,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="TIA-v6-93i"/>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="fMm-Cb-2f6" id="cdq-rG-JN1"/>
                         <outlet property="collectionView" destination="y3G-ku-ZmH" id="8N1-of-GdV"/>
                         <segue destination="ne4-t4-MP1" kind="show" identifier="PhotoDetails" id="G87-WO-BBJ"/>
                     </connections>

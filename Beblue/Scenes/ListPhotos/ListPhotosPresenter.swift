@@ -16,6 +16,7 @@ class ListPhotosPresenter: ListPhotosPresentationLogic {
     
     weak var viewController: ListPhotosDisplayLogic?
     
+    
     // MARK: - Fetch photos
     
     func presentFetchedPhotos(response: ListPhotos.FetchPhotos.Response) {
